@@ -17,7 +17,7 @@ let randLocationInfo = document.querySelector('.randInfoSection');
 // let ulist = document.createElement("ul");
 let rlist = document.createElement("ul");
 
-const myKey = "ce511346877247bb549233d925546cbe";
+const myKey = "";
 
 var videoModal = document.getElementById("vidTutModal");
 var vidModalButton = document.getElementById("vidTutorial");
