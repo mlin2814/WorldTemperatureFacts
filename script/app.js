@@ -18,6 +18,7 @@ let randLocationInfo = document.querySelector('.randInfoSection');
 let rlist = document.createElement("ul");
 
 const myKey = "";
+// const fs = require('fs');
 
 var videoModal = document.getElementById("vidTutModal");
 var vidModalButton = document.getElementById("vidTutorial");
@@ -36,22 +37,6 @@ window.onclick = function(event) {
     }
 }
 
-// var userModal = document.getElementById("userLearnMoreContent");
-// var userModalButton = document.getElementById("userLearnButton");
-// var userSpan = document.getElementsByClassName("close")[1];
-// userModalButton.onclick = function() {
-//     userModal.style.display = "block";
-// }
-
-// userSpan.onclick = function() {
-//     userModal.style.display = "none";
-// }
-
-// window.onclick = function(event) {
-//     if (event.target == userModal) {
-//         userModal.style.display = "none";
-//     }
-// }
 // Get the modal
 var userLearnModal = document.getElementById("userLearnModal");
 // Get the button that opens the modal
@@ -110,34 +95,12 @@ button.addEventListener('click', function(){
     userLocationTempC.innerHTML = "Dummy Data: 10 C";
     userLocationInfo.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
+    fs.writeFile('Location1.txt', userLocationTempValue, (err) =>{
+        if (err) {
+            throw err;
+        }
+    });
 
-    // userLearnMore.innerHTML = "<button id='userLearnMoreButton'>Learn More</button><div id='userLearnMoreModalDiv'></div>"
-
-    // var userModal = document.getElementById("userLearnMoreModalDiv");
-    // var userModalButton = document.getElementById("userLearnMoreButton");
-    // var userSpan = document.getElementsByClassName("close")[0];
-    // let userLearnMoreModalDiv = document.getElementById('userLearnMoreModalDiv');
-
-    // userModalButton.onclick = function() {
-        
-    //     userLearnMoreModalDiv.innerHTML = "<div class='modal-header'><h2>Leaving Page</h2></div><div class='modal-body'><p>Do you want to navigate away from this page?</p><a href=https://www.google.com id='userLearnMore'>Yes</a><span class='close'>&times;</span></div>"
-    //     userModal.style.display = "block";
-    // }
-
-    // userSpan.onclick = function() {
-    //     userModal.style.display = "none";
-    // }
-
-    // window.onclick = function(event) {
-    //     if (event.target == userModal) {
-    //         userModal.style.display = "none";
-    //     }
-    // }
-    // let userLearnMoreModalDiv = document.getElementById('userLearnMoreModalDiv');
-    // userLearnMoreModalDiv.innerHTML = "<div class='modal-header'><h2>Leaving Page</h2></div><div class='modal-body'><p>Do you want to navigate away from this page?</p><a href=https://www.google.com id='userLearnMore'>Yes</a><span class='close'>No</span></div>"
-    
-    // ulist.appendChild(ulistBullet);
-    // userLocationInfo.appendChild(ulist);
 
 })
 .catch(err => alert("Something's wrong"),
@@ -155,9 +118,12 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid='+myKey+'&
     randLocationTemp.innerHTML = randLocationTempValue+" F";
     randLocationTempC.innerHTML = "Dummy Data: 10 C";
     randLocationInfo.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    // randLearnMore.innerHTML = "<a href=https://www.google.com>Learn More</a>"
-    // rlist.appendChild(rlistBullet);
-    // randLocationInfo.appendChild(rlist);
+    
+    fs.writeFile('Location2.txt', randLocationTempValue, (err) =>{
+        if (err) {
+            throw err;
+        }
+    });
 })
 .catch(err => alert("Something's wrong"))
 )
