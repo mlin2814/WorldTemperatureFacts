@@ -27,13 +27,13 @@ weatherForm.addEventListener('submit', (event) => {
             } else {
                 locationElement.textContent = "Your Location: " + data.cityName;
                 // tempElement.textContent = (data.temperature - 273.5).toFixed(2) + String.fromCharCode(176);
-                tempElement.textContent = (data.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
+                // tempElement.textContent = (data.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
                 userConvertTemp = (data.temperature * 1.8 - 459.67).toFixed(2);
                 console.log(userConvertTemp);
-                var myFile = new File([userConvertTemp], "Location1.txt", {type: "text/plain;charset=utf-8"});
-                saveAs(myFile);
+                var userFile = new File([userConvertTemp], "Location1.txt", {type: "text/plain;charset=utf-8"});
+                saveAs(userFile);
                 
-                document.getElementById('fileInput').addEventListener('change', function selectedFileChanged() {
+                document.getElementById('userfileInput').addEventListener('change', function selectedFileChanged() {
                     // console.log(this.files); // will contain information about the file that was selected.
                     if (this.files.length === 0) {
                         console.log('No file selected.');
@@ -58,17 +58,30 @@ weatherForm.addEventListener('submit', (event) => {
             if(testdata.error) {
                 testlocationElement.textContent = testdata.error;
                 testtempElement.textContent = "";
-                // testweatherCondition.textContent = "";
             } else {
-                // console.log()
-                // if(testdata.description === "rain" || testdata.description === "fog") {
-                //     testweatherIcon.className = "wi wi-day-" + testdata.description
-                // } else {
-                //     testweatherIcon.className = "wi wi-day-cloudy"
-                // }
                 testlocationElement.textContent = "Random Location: " + testdata.cityName;
-                testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
-                // testweatherCondition.textContent = testdata.description.toUpperCase();
+                // testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
+                randConvertTemp = (testdata.temperature * 1.8 - 459.67).toFixed(2);
+                console.log(randConvertTemp);
+                var randFile = new File([randConvertTemp], "Location2.txt", {type: "text/plain;charset=utf-8"});
+                saveAs(randFile);
+                
+                document.getElementById('randfileInput').addEventListener('change', function selectedFileChanged() {
+                    // console.log(this.files); // will contain information about the file that was selected.
+                    if (this.files.length === 0) {
+                        console.log('No file selected.');
+                        return;
+                      }
+                    
+                      const reader = new FileReader();
+                      reader.onload = function fileReadCompleted() {
+                        // when the reader is done, the content is in reader.result.
+                        console.log(reader.result);
+                        var randTempC = reader.result;
+                        testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F / " + randTempC +"C";
+                      };
+                      reader.readAsText(this.files[0]);
+                });
             }
         }) 
     })
