@@ -13,7 +13,6 @@ const testtempElement = document.querySelector('.testtemperature span');
 const testlocationElement = document.querySelector('.testplace');
 
 
-
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
     locationElement.textContent = "Loading...";
@@ -25,7 +24,7 @@ weatherForm.addEventListener('submit', (event) => {
                 locationElement.textContent = data.error;
                 tempElement.textContent = "";
             } else {
-                locationElement.textContent = "Your Location: " + data.cityName;
+                locationElement.textContent = data.cityName;
                 // tempElement.textContent = (data.temperature - 273.5).toFixed(2) + String.fromCharCode(176);
                 // tempElement.textContent = (data.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
                 userConvertTemp = (data.temperature * 1.8 - 459.67).toFixed(2);
@@ -45,10 +44,19 @@ weatherForm.addEventListener('submit', (event) => {
                         // when the reader is done, the content is in reader.result.
                         console.log(reader.result);
                         var userTempC = reader.result;
-                        tempElement.textContent = (data.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F / " + userTempC +"C";
+                        tempElement.textContent = (data.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F / " + userTempC + String.fromCharCode(176) + "C";
                       };
                       reader.readAsText(this.files[0]);
                 });
+
+                // const userSpan = document.createElement("span");
+                const userLink = document.createElement("a");
+                const userModal = document.getElementById("userModal");
+
+                userLink.setAttribute("href", 'https://www.google.com/search?q=' + data.cityName);
+                userLink.textContent = "Yes";
+                userModal.appendChild(userLink);
+
 
             }
         }) 
@@ -59,7 +67,7 @@ weatherForm.addEventListener('submit', (event) => {
                 testlocationElement.textContent = testdata.error;
                 testtempElement.textContent = "";
             } else {
-                testlocationElement.textContent = "Random Location: " + testdata.cityName;
+                testlocationElement.textContent = testdata.cityName;
                 // testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
                 randConvertTemp = (testdata.temperature * 1.8 - 459.67).toFixed(2);
                 console.log(randConvertTemp);
@@ -78,11 +86,19 @@ weatherForm.addEventListener('submit', (event) => {
                         // when the reader is done, the content is in reader.result.
                         console.log(reader.result);
                         var randTempC = reader.result;
-                        testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F / " + randTempC +"C";
+                        testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F / " + randTempC + String.fromCharCode(176) +"C";
                       };
                       reader.readAsText(this.files[0]);
                 });
+
+                const randLink = document.createElement("a");
+                const randModal = document.getElementById("randModal");
+
+                randLink.setAttribute("href", 'https://www.google.com/search?q=' + testdata.cityName);
+                randLink.textContent = "Yes";
+                randModal.appendChild(randLink);
             }
+                
         }) 
     })
 })
