@@ -211,3 +211,13 @@ padding: 2px 16px;
 background-color: #5cb85c;
 color: white;
 }
+
+#userfileInput {
+  margin: auto;
+  display: block;
+}
+
+#randfileInput {
+  margin: auto;
+  display: block;
+}
