@@ -39,4 +39,4 @@ while 1:
     writeToFile('Location1')
     writeToFile('Location2')
 
-    sleep(10)
+    sleep(5)
