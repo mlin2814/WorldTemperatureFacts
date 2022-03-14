@@ -8,6 +8,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         {{!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+        
+        
     </head>
     <body>
         <div class="container" name="wholeSite">
@@ -116,25 +118,8 @@
             </div>
 
         </div>
-        {{!-- <div class="main-content">
-            
-            <article class="widget">
-                <form class="weatherLocation"><input placeholder="location..." type = "text"/>
-                    <button>Search</button>
-                </form>
-                <div class="weatherIcon"><i class="wi wi-day-cloudy"></i></div>
-                
-                <div class="testweatherIcon"><i class="wi wi-day-cloudy"></i></div>
-                <div class="testweatherInfo">
-                    <div class="testtemperature"><span></span></div>
-                    <div class="testdescription">    
-                        <div class="testweatherCondition"></div>    
-                        <div class="testplace"></div>
-                    </div>
-                </div>
-                <div class="date"></div>
-            </article>
-        </div> --}}
-       <script src="js/app.js"></script> <!-- absolute path --> 
+        
+       <script src="js/app.js" type="module"></script> <!-- absolute path --> 
+       <script type="module" src="js/cityArray.js"></script>
     </body>
 </html>
