@@ -20,6 +20,19 @@ var cityArrayTest = cityArray[Math.floor(Math.random()*cityArray.length)];
 console.log("City: " + cityArrayTest);
 
 
+function locationText(locationType, convertTemp) {
+    console.log(locationType);
+    if (locationType == "user") {
+        var userFile = new File([convertTemp], "Location1.txt", {type: "text/plain;charset=utf-8"});
+        saveAs(userFile);
+    }
+    else if (locationType == "rand") {
+        var randFile = new File([convertTemp], "Location2.txt", {type: "text/plain;charset=utf-8"});
+        saveAs(randFile);
+    }
+}
+
+
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
     locationElement.textContent = "Loading...";
@@ -34,25 +47,26 @@ weatherForm.addEventListener('submit', (event) => {
                 locationElement.textContent = data.cityName;
                 var userConvertTemp = (data.temperature * 1.8 - 459.67).toFixed(2);
                 console.log(userConvertTemp);
-                var userFile = new File([userConvertTemp], "Location1.txt", {type: "text/plain;charset=utf-8"});
-                saveAs(userFile);
+                // var userFile = new File([userConvertTemp], "Location1.txt", {type: "text/plain;charset=utf-8"});
+                // saveAs(userFile);
+                locationText("user", userConvertTemp);
                 
                 document.getElementById('userfileInput').addEventListener('change', function selectedFileChanged() {
                     if (this.files.length === 0) {
                         console.log('No file selected.');
                         return;
-                      }
+                    }
                     
-                      const reader = new FileReader();
-                      reader.onload = function fileReadCompleted() {
+                    const reader = new FileReader();
+                    reader.onload = function fileReadCompleted() {
                         console.log(reader.result);
                         var userTempC = reader.result;
                         tempElement.textContent = (data.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F / " + userTempC + String.fromCharCode(176) + "C";
-                      };
-                      reader.readAsText(this.files[0]);
+                    };
+                    reader.readAsText(this.files[0]);
                 });
 
-                const userLink = document.createElement("a");
+                const userLink = document.createElement("button");
                 const userModal = document.getElementById("userModal");
 
                 userLink.setAttribute("href", 'https://www.google.com/search?q=' + data.cityName);
@@ -71,8 +85,9 @@ weatherForm.addEventListener('submit', (event) => {
                 // testtempElement.textContent = (testdata.temperature * 1.8 - 459.67).toFixed(2) + String.fromCharCode(176) + "F";
                 var randConvertTemp = (testdata.temperature * 1.8 - 459.67).toFixed(2);
                 console.log(randConvertTemp);
-                var randFile = new File([randConvertTemp], "Location2.txt", {type: "text/plain;charset=utf-8"});
-                saveAs(randFile);
+                // var randFile = new File([randConvertTemp], "Location2.txt", {type: "text/plain;charset=utf-8"});
+                // saveAs(randFile);
+                locationText("rand", randConvertTemp);
                 
                 document.getElementById('randfileInput').addEventListener('change', function selectedFileChanged() {
                     // console.log(this.files); // will contain information about the file that was selected.
@@ -91,7 +106,7 @@ weatherForm.addEventListener('submit', (event) => {
                       reader.readAsText(this.files[0]);
                 });
 
-                const randLink = document.createElement("a");
+                const randLink = document.createElement("button");
                 const randModal = document.getElementById("randModal");
 
                 randLink.setAttribute("href", 'https://www.google.com/search?q=' + testdata.cityName);

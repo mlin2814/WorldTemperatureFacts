@@ -1,10 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
-/* $border-radius: 20px; */
+
 body {
   color: #333333;
   font-family: Arial, Helvetica, sans-serif;
-  /* max-width: 650px; */
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
@@ -26,8 +25,7 @@ h2 {
   margin-bottom: 16px;
 }
 
-
-.widget {
+/* .widget {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -39,7 +37,7 @@ h2 {
   cursor: pointer;
   border-radius: 20px;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-}
+} */
 
 .weatherLocation{
   display: flex;
@@ -59,7 +57,7 @@ h2 {
   outline: 0 none;
 }
 
-.widget .weatherIcon {
+/* .widget .weatherIcon {
   flex: 1 100%;
   height: 60%;
   border-top-left-radius: 20px;
@@ -73,7 +71,7 @@ h2 {
 }
 .widget .weatherIcon i {
   padding-top: 30px;
-}
+} */
 .widget .weatherInfo {
   flex: 0 0 70%;
   height: 40%;
@@ -107,7 +105,7 @@ h2 {
   font-size: 15px;
 }
 
-.widget .testweatherIcon {
+/* .widget .testweatherIcon {
   flex: 1 100%;
   height: 60%;
   border-top-left-radius: 20px;
@@ -121,7 +119,7 @@ h2 {
 }
 .widget .testweatherIcon i {
   padding-top: 30px;
-}
+} */
 .widget .testweatherInfo {
   flex: 0 0 70%;
   height: 40%;
@@ -155,7 +153,7 @@ h2 {
   font-size: 15px;
 }
 
-.widget .date {
+/* .widget .date {
   flex: 0 0 30%;
   height: 40%;
   background: rgb(68, 112, 207);
@@ -166,7 +164,7 @@ h2 {
   color: white;
   font-size: 30px;
   font-weight: 800;
-}
+} */
 
 p {
   position: fixed;
@@ -220,4 +218,8 @@ color: white;
 #randfileInput {
   margin: auto;
   display: block;
+}
+
+.container {
+  margin: 1em;
 }
