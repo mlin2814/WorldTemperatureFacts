@@ -20,11 +20,10 @@ app.use(express.static(publicStaticDirPath));
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Welcome and discover something new about the world with a location that shares the same temperature!'
+        title: 'World Temperature Facts'
     })
 })
 
-//localhost:3000/weather?address=lahore
 app.get('/weather', (req, res) => {
     const address = req.query.address
     if(!address) {

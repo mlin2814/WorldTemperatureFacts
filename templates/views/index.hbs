@@ -7,8 +7,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-        
-        
     </head>
     <body>
         <div class="container" name="wholeSite">
@@ -17,12 +15,15 @@
                     {{>header}}
                 </div>
                 <div class="col-lg-2">
-                    <button type="button" class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">Video Tutorial</button>
+                    <button type="button" class="btn btn-primary btn-default" 
+                    data-toggle="modal" data-target="#myModal">
+                        Video Tutorial
+                    </button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <form class="weatherLocation"><input placeholder="location..." type = "text"/>
+                    <form class="weatherLocation"><input placeholder="Location..." type = "text"/>
                         <button>Search</button>
                     </form>
                 </div>
@@ -38,7 +39,10 @@
                                     <h4 class="modal-title">Video Tutorial</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Video Tutorial In Development</p>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pm6Ce0Z5t9s" 
+                                    title="YouTube video player" frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                    </iframe>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +66,10 @@
                         <h3>Would you like to learn more about your location?</h3>
                         <p class="userInfoSection"></p>  
                     </div>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#userLearnMore">Learn More</button>
+                    <button type="button" class="btn btn-info btn-lg"
+                    data-toggle="modal" data-target="#userLearnMore">
+                        Learn More
+                    </button>
                     <div id="userLearnMore" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -72,7 +79,6 @@
                                     <h4 class="modal-title">Would you like to navigate away from this site?</h4>
                                 </div>
                                 <div class="modal-body" id="userModal">
-                                    {{!-- <a href=https://www.google.com id='userLearnMore'>Yes</a> --}}
                                     <button type="button" class="close" data-dismiss="modal">No</button>
                                 </div>
                             </div>
@@ -80,12 +86,12 @@
                     </div>
                 </div>
                 <div class="col-md-6 text-center">
-                    <div class="testweatherInfo">
-                        <div class="testdescription">    
+                    <div class="randweatherInfo">
+                        <div class="randdescription">    
                             <h4>Random Location: </h4>
-                            <div class="testplace"></div>
+                            <div class="randplace"></div>
                         </div>
-                        <div class="testtemperature"><span></span></div>
+                        <div class="randtemperature"><span></span></div>
                     </div>
                     <div>
                         <input type="file" id="randfileInput">
@@ -94,7 +100,10 @@
                         <h3>Would you like to learn more about this location?</h3>
                         <p class="randInfoSection"></p>  
                     </div>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#randLearnMore">Learn More</button>
+                    <button type="button" class="btn btn-info btn-lg" 
+                    data-toggle="modal" data-target="#randLearnMore">
+                        Learn More
+                    </button>
                     <div id="randLearnMore" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -104,18 +113,14 @@
                                     <h4 class="modal-title">Would you like to navigate away from this site?</h4>
                                 </div>
                                 <div class="modal-body" id="randModal">
-                                    {{!-- <a href=https://www.google.com id='randLearnMore'>Yes</a> --}}
                                     <button type="button" class="close" data-dismiss="modal">No</button>
                                 </div>
                             </div>
                         </div>
                     </div>                    
                 </div>
-                
             </div>
-
         </div>
-        
        <script src="js/app.js" type="module"></script> <!-- absolute path --> 
        <script type="module" src="js/cityArray.js"></script>
     </body>
